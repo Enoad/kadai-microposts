@@ -4,7 +4,7 @@
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-error normal-case" 
-                onclick="return confirm('id = {{ $micropost->id }} のお気に入りを外します。よろしいですか？')">Unfavorite</button>
+                onclick="return confirm('このmicropost のお気に入りを外します。よろしいですか？')">Unfavorite</button>
         </form>
     @else
         {{-- お気に入りボタンのフォーム --}}
