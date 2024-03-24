@@ -19,7 +19,12 @@
                             {{-- 投稿内容 --}}
                             <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                         </div>
-                        <div>
+                        <div style="display: flex;">
+                            <div>
+                            {{-- お気に入りボタン --}}
+                            @include('favorite.favorite_button')
+                            </div>
+                            <div>
                             @if (Auth::id() == $micropost->user_id)
                                 {{-- 投稿削除ボタンのフォーム --}}
                                 <form method="POST" action="{{ route('microposts.destroy', $micropost->id) }}">
@@ -29,6 +34,7 @@
                                         onclick="return confirm('Delete id = {{ $micropost->id }} ?')">Delete</button>
                                 </form>
                             @endif
+                            </div>
                         </div>
                     </div>
                 </li>
